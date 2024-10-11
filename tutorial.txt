@@ -1,0 +1,23 @@
+Bahan Yang Kalian Siapkan:
+1.XAMPP
+2.Node Js
+3.NPM
+
+Catatan:
+Bila Belum Ada Silahkan Di Install
+
+Tata Cara:
+1.npm init -y 
+2. touch server.js(penamaan bebas asal kalian menggerti)
+3.masuk ke editor kalian
+4.npm i express mysql(install express)
+5.npm i ejs(install ejs)
+6.buat folder views
+7.buat file index.ejs di folder views
+8.npm i --save nodemod(agar server auto relog)
+9.pergi ke package.json,lalu ke line script,ketik text berikut untuk menjalakan server:
+"start": "nodemon server.js",
+10.npm start
+
+
+Silahkan Mencoba Dan Ulik Sendiri

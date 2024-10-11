@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+          theme: {
+            extend: {
+
+            }
+          }
+        }
+      </script>
+        <style type="text/tailwindcss">
+            @tailwind base;
+            @tailwind components;
+            @tailwind utilities;
+          </style>
+    <title>Edit User - AlipGs</title>
+</head>
+<body>
+    <div class="container mx-auto mt-8">
+        <h1 class="text-2xl font-bold mb-4">Edit User</h1>
+        <form action="/update" method="POST">
+            <input type="hidden" name="id" value="<%= user.id %>">
+            <div class="mb-5">
+                <label for="namaDepan" class="block mb-2 font-bold text-gray-600">Nama Depan</label>
+                <input type="text" id="namaDepan" name="namaDepan" value="<%= user.namaDepan %>" class="border border-gray-300 shadow p-3 w-full rounded">
+            </div>
+
+            <div class="mb-5">
+                <label for="namaBelakang" class="block mb-2 font-bold text-gray-600">Nama Belakang</label>
+                <input type="text" id="namaBelakang" name="namaBelakang" value="<%= user.namaBelakang %>" class="border border-gray-300 shadow p-3 w-full rounded">
+            </div>
+
+            <button type="submit" class="bg-blue-500 text-white font-bold py-2 px-4 rounded">Update</button>
+            <a href="/" class="ml-2 bg-gray-500 text-white font-bold py-2 px-4 rounded">Cancel</a>
+        </form>
+    </div>
+</body>
+</html>

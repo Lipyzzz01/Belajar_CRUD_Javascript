@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+          theme: {
+            extend: {
+
+            }
+          }
+        }
+      </script>
+        <style type="text/tailwindcss">
+            @tailwind base;
+            @tailwind components;
+            @tailwind utilities;
+          </style>
+    <title>AlipGs</title>
+</head>
+<body>
+    <div>
+    <table class="min-w-full divide-y divide-gray-200">
+        <thead>
+            <tr>
+                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Id</th>
+                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Nama Depan</th>
+                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Nama Belakang</th>
+                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Nama Lengkap</th>
+                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Action</th>
+            </tr>
+        </thead>
+        <tbody class="bg-white divide-y divide-gray-200">
+            <% for (let user of users) { %>
+            <tr>
+                <td class="px-6 py-4 whitespace-nowrap">
+                    <%= user.id %>
+                </td>
+                <td class="px-6 py-4 whitespace-nowrap">
+                    <%= user.namaDepan %>
+                </td>
+                <td class="px-6 py-4 whitespace-nowrap">
+                    <%= user.namaBelakang %>
+                </td>
+
+                <td class="px-6 py-4 whitespace-nowrap">
+                    <%= user.namaDepan + " " + user.namaBelakang %>
+                </td>
+
+                <td class="px-6 py-4 whitespace-nowrap">
+                    <a href="/edit/<%= user.id %>" class="px-4 py-2 font-medium text-white bg-blue-600 rounded-md hover:bg-blue-500 focus:outline-none focus:shadow-outline-blue active:bg-blue-600 transition duration-150 ease-in-out">
+                        Edit
+                    </a>
+                    <a href="/delete/<%= user.id %>" class="ml-2 px-4 py-2 font-medium text-white bg-red-600 rounded-md hover:bg-red-500 focus:outline-none focus:shadow-outline-red active:bg-red-600 transition duration-150 ease-in-out" onclick="return confirm('Apakah Anda yakin ingin menghapus data ini?')">
+                        Delete
+                    </a>
+                </td>
+            </tr>
+            <% } %>
+        </tbody>
+    </table>
+
+    <form action="/tambah" method="POST" class="mt-8">
+        <div class="mb-5">
+            <label for="name" class="block mb-2 font-bold text-gray-600">Nama Depan</label>
+            <input type="text" id="name" name="namaDepan" placeholder="Isi Nama Depan." class="border border-gray-300 shadow p-3 w-full rounded mb-">
+        </div>
+
+        <div class="mb-5">
+            <label for="twitter" class="block mb-2 font-bold text-gray-600">Nama Belakang</label>
+            <input type="text" id="twitter" name="namaBelakang" placeholder="isi Nama Belakang." class="border border-red-300 shadow p-3 w-full rounded mb-">
+            <p class="text-sm text-red-400 mt-2">Isi nama depan dan Belakang</p>
+        </div>
+
+        <button type="submit" class="block w-full bg-blue-500 text-white font-bold p-4 rounded-lg">Submit</button>
+    </form>
+</div>
+</body>
+</html>
